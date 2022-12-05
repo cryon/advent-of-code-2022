@@ -1,3 +1,5 @@
+from util import lines
+
 
 def solve():
     elf_calories = sorted([sum(calories) for calories in parse_input("input")], reverse=True)
@@ -6,14 +8,13 @@ def solve():
 
 
 def parse_input(path):
-    with open(path, "r") as input_file:
-        chunk = []
-        for line in input_file.readlines():
-            if line != "\n":
-                chunk.append(int(line))
-            else:
-                yield chunk
-                chunk = []
+    chunk = []
+    for line in lines(path):
+        if line != "\n":
+            chunk.append(int(line))
+        else:
+            yield chunk
+            chunk = []
 
 
 if __name__ == "__main__":

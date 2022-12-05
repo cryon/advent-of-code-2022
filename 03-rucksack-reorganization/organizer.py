@@ -1,3 +1,6 @@
+from util import lines
+
+
 def priority(item):
     return ord(item) - 38 if item.isupper() else ord(item) - 96
 
@@ -19,24 +22,18 @@ def solve():
 
 
 def split_input(path):
-    for line in parse_input(path):
+    for line in lines(path):
         length = len(line) // 2
         yield line[:length], line[length:]
 
 
 def chunk_input(path):
-    lines = parse_input(path)
+    line_iter = lines(path, strip=True)
     while True:
         try:
-            yield next(lines), next(lines), next(lines)
+            yield next(line_iter), next(line_iter), next(line_iter)
         except StopIteration:
             return
-
-
-def parse_input(path):
-    with open(path, "r") as input_file:
-        for line in input_file.readlines():
-            yield line.strip()
 
 
 if __name__ == "__main__":

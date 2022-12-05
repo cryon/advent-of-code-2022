@@ -1,3 +1,4 @@
+from util import lines
 
 scores = {
     'A': 1, 'X': 1,  # rock / lose
@@ -27,9 +28,8 @@ def solve():
 
 
 def parse_input(path):
-    with open(path, "r") as input_file:
-        for line in input_file.readlines():
-            yield line.strip().split(" ")
+    for line in lines(path):
+        yield line.strip().split(" ")
 
 
 if __name__ == "__main__":
