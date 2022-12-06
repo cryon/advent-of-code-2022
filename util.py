@@ -6,3 +6,10 @@ def lines(path, strip=False):
                 yield line.strip()
             else:
                 yield line
+
+
+def characters(path):
+    for line in lines(path):
+        for character in line:
+            yield character
+
