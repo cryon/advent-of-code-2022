@@ -13,3 +13,7 @@ def characters(path):
         for character in line:
             yield character
 
+
+def whole_file(path):
+    with open(path, "r") as input_file:
+        return input_file.read()
