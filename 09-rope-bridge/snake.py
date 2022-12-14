@@ -1,8 +1,4 @@
-from util import lines
-
-
-def sign(x):
-    return (x > 0) - (x < 0)
+from util import lines, sign
 
 
 def move_rope(rope, move, tail_visited):
